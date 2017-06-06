@@ -153,7 +153,7 @@ class officialTests: XCTestCase {
     let result = Variable (named: "v")
     let goal   = evalBoolean (input: not (or (t, f)), output: result)
     for sub in solve (goal) {
-      XCTAssert (sub.reified () [result].equals (t), "official negation fails")
+      XCTAssert (sub.reified () [result].equals (f), "official negation fails")
       break
     }
   }
@@ -162,7 +162,7 @@ class officialTests: XCTestCase {
     let result = Variable (named: "v")
     let goal   = evalBoolean (input: not (and (t, f)), output: result)
     for sub in solve (goal) {
-      XCTAssert (sub.reified () [result].equals (f), "official negation fails")
+      XCTAssert (sub.reified () [result].equals (t), "official negation fails")
       break
     }
   }
